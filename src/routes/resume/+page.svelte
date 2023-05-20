@@ -10,7 +10,7 @@
 	const { resume } = data;
 </script>
 
-<div class="dark:bg-zinc-950 bg-zinc-100">
+<div class="prose">
 	<div
 		class="container mx-auto max-w-4xl bg-white py-8 px-16 shadow-md dark:border-x dark:border-zinc-800 dark:bg-zinc-900"
 	>
