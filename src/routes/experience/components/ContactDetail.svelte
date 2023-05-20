@@ -3,24 +3,29 @@
 	export let contact: ContactInformation;
 </script>
 
-{#if contact.type === 'email'}
-	<a href={`mailto:${contact.value}`} class="flex flex-row items-center justify-start gap-2">
-		<i class="fas fa-envelope fa-lg w-10 text-center" />
-		<span>{contact.value}</span>
-	</a>
-{:else if contact.type === 'phone'}
-	<div class="flex flex-row items-center justify-start gap-2">
-		<i class="fas fa-phone fa-lg w-10 text-center" />
-		<span>{contact.value}</span>
-	</div>
-{:else if contact.type === 'website'}
-	<a href={contact.value} class="flex flex-row items-center justify-start gap-2">
-		<i class="fas fa-globe fa-lg w-10 text-center" />
-		<span>{contact.value}</span>
-	</a>
-{:else if contact.type === 'linkedin'}
-	<a href={contact.value} class="flex flex-row items-center justify-start gap-2">
-		<i class="fab fa-linkedin fa-lg w-10 text-center" />
-		<span>{contact.value}</span>
-	</a>
-{/if}
+<div class="flex flex-col items-start justify-start">
+	{#if contact.type === 'email'}
+		<a
+			href={`mailto:${contact.value}`}
+			class="flex-reverse flex items-center justify-start text-sm"
+		>
+			<i class="fas fa-envelope w-10 text-center" />
+			<span class="hidden md:flex">{contact.value}</span>
+		</a>
+	{:else if contact.type === 'phone'}
+		<div class="flex-reverse flex items-center justify-start text-sm">
+			<i class="fas fa-phone w-10 text-center" />
+			<span class="hidden md:flex">{contact.value}</span>
+		</div>
+	{:else if contact.type === 'website'}
+		<a href={contact.value} class="flex-reverse flex items-center justify-start text-sm">
+			<i class="fas fa-globe w-10 text-center" />
+			<span class="hidden md:flex">{contact.value}</span>
+		</a>
+	{:else if contact.type === 'linkedin'}
+		<a href={contact.value} class="flex-reverse flex items-center justify-start text-sm">
+			<i class="fab fa-linkedin w-10 text-center" />
+			<span class="hidden md:flex">{contact.value}</span>
+		</a>
+	{/if}
+</div>

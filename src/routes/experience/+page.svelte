@@ -10,38 +10,37 @@
 	const { resume } = data;
 </script>
 
-<div class="">
+<div class="text-zinc-900">
 	<div
-		class="container mx-auto max-w-4xl bg-white py-8 px-16 shadow-md dark:border-x dark:border-zinc-800 dark:bg-zinc-900"
+		class="container mx-auto flex max-w-4xl flex-col items-stretch justify-start gap-8 bg-white px-16 py-8 shadow-md dark:border-x dark:border-zinc-800 dark:bg-zinc-900"
 	>
-		<div>In Progress</div>
-		<!-- <img src={resume.photoUrl} alt="Nathan Tipton" /> -->
-		<div>
-			<h1>{resume.name}</h1>
-			<h3>{resume.title}</h3>
+		<div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+			<div>
+				<h1 class="text-4xl font-bold">{resume.name}</h1>
+				<h3 class="text-xl font-semibold text-zinc-700">{resume.title}</h3>
+			</div>
+			<div class="flex md:flex-col">
+				{#each resume.contact as contact}
+					<ContactDetail {contact} />
+				{/each}
+			</div>
 		</div>
 
-		<div>
-			{#each resume.contact as contact}
-				<ContactDetail {contact} />
-			{/each}
-		</div>
-
-		<p>
+		<p class="text-zinc-600">
 			{resume.summary}
 		</p>
 
-		<div>
-			<h2>Skills</h2>
-			<div>
+		<div class="flex flex-col items-stretch justify-start gap-2">
+			<h2 class="text-xl font-bold text-zinc-700">Skills</h2>
+			<div class="flex flex-wrap gap-2">
 				{#each resume.skills as skill}
 					<Skill {skill} />
 				{/each}
 			</div>
 		</div>
 
-		<div>
-			<h2>Experience</h2>
+		<div class="flex flex-col items-stretch justify-start gap-2">
+			<h2 class="text-xl font-bold text-zinc-700">Experience</h2>
 			<div>
 				{#each resume.experience as experience}
 					<Experience {experience} />
@@ -49,8 +48,8 @@
 			</div>
 		</div>
 
-		<div>
-			<h2>Education</h2>
+		<div class="flex flex-col items-stretch justify-start gap-2">
+			<h2 class="text-xl font-bold text-zinc-700">Education</h2>
 			<div>
 				{#each resume.education as education}
 					<Education {education} />
@@ -59,8 +58,8 @@
 			</div>
 		</div>
 
-		<div>
-			<h2>Projects</h2>
+		<div class="flex flex-col items-stretch justify-start gap-2">
+			<h2 class="text-xl font-bold text-zinc-700">Projects</h2>
 			<div>
 				{#each resume.projects as project}
 					<Project {project} />
