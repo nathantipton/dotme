@@ -3,9 +3,9 @@
 		<ul class="flex flex-row items-center justify-end gap-4">
 			<li>
 				<a
-					href="/resume"
+					href="/experience"
 					class="hover:text-zinc-950 text-zinc-500 underline-offset-8 hover:underline dark:text-zinc-400 dark:hover:text-white"
-					>Resume</a
+					>Experience</a
 				>
 			</li>
 			<li>
