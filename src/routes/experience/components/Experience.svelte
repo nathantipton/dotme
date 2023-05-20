@@ -6,7 +6,7 @@
 
 <div class="flex flex-col items-stretch justify-start">
 	<div class="flex flex-row items-center justify-between">
-		<div>
+		<div class="prose">
 			<h3>{experience.title}</h3>
 			<h4>{experience.company} | {experience.location}</h4>
 		</div>
@@ -19,7 +19,7 @@
 	<div>
 		{#each experience.highlights as highlight}
 			<h4>{highlight.title}</h4>
-			<ul>
+			<ul class="list-inside text-sm">
 				{#each highlight.points as point}
 					<li class=" list-disc">{point}</li>
 				{/each}

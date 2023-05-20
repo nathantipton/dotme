@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
 	import '@fontsource/montserrat';
 	import '@fontsource/open-sans';
 	// Your selected Skeleton theme:
-	import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
+	import '../theme.css';
 
 	// This contains the bulk of Skeletons required styles:
 	// NOTE: this will be renamed skeleton.css in the v2.x release.
