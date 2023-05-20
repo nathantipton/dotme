@@ -12,7 +12,7 @@
 
 <div class="text-zinc-900">
 	<div
-		class="container mx-auto flex max-w-4xl flex-col items-stretch justify-start gap-8 bg-white px-16 py-8 shadow-md dark:border-x dark:border-zinc-800 dark:bg-zinc-900"
+		class="container mx-auto flex max-w-4xl flex-col items-stretch justify-start gap-8 bg-white px-4 py-8 shadow-md dark:border-x dark:border-zinc-800 dark:bg-zinc-900 md:px-16"
 	>
 		<div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
 			<div>
@@ -26,7 +26,7 @@
 			</div>
 		</div>
 
-		<p class="text-zinc-600">
+		<p class="text-zinc-600 text-sm md:text-base">
 			{resume.summary}
 		</p>
 

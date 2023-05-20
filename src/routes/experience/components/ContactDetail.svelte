@@ -13,10 +13,10 @@
 			<span class="hidden md:flex">{contact.value}</span>
 		</a>
 	{:else if contact.type === 'phone'}
-		<div class="flex-reverse flex items-center justify-start text-sm">
+		<a href={`tel:${contact.value}`} class="flex-reverse flex items-center justify-start text-sm">
 			<i class="fas fa-phone w-10 text-center" />
 			<span class="hidden md:flex">{contact.value}</span>
-		</div>
+		</a>
 	{:else if contact.type === 'website'}
 		<a href={contact.value} class="flex-reverse flex items-center justify-start text-sm">
 			<i class="fas fa-globe w-10 text-center" />
