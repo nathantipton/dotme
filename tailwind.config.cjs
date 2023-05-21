@@ -9,10 +9,10 @@ module.exports = {
         montserrat: ['Montserrat', 'sans-serif']
       },
       height: {
-        safe: '100lvh'
+        safe: '100dvh'
       },
       minHeight: {
-        safe: '100lvh'
+        safe: '100dvh'
       }
     },
   },
