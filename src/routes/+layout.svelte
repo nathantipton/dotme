@@ -36,15 +36,18 @@
         effective at understanding business needs and providing innovative solutions."
 	/>
 	<meta property="og:url" content="https://nathantipton.me" />
-	<meta property="og:image" content="profile.jpg" />
+	<meta property="og:image" content="https://www.nathantipton.me/profile.jpg" />
 	<meta property="og:image:alt" content="Nathan Tipton - Home" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="@ntipton21" />
 	<meta name="twitter:title" content="Nathan Tipton - Resume" />
-	<meta name="twitter:description" content="Creative and ambitious software developer with ten years of demonstrated experience in the
+	<meta
+		name="twitter:description"
+		content="Creative and ambitious software developer with ten years of demonstrated experience in the
         development, design, implementation, and maintenance of modern web applications. Highly
-        effective at understanding business needs and providing innovative solutions." />
-	<meta name="twitter:image" content="profile.jpg" />
+        effective at understanding business needs and providing innovative solutions."
+	/>
+	<meta name="twitter:image" content="https://www.nathantipton.me/profile.jpg" />
 	<meta name="twitter:image:alt" content="Nathan Tipton - Resume" />
 </svelte:head>
 
