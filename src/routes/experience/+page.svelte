@@ -41,7 +41,7 @@
 
 		<div class="flex flex-col items-stretch justify-start gap-2">
 			<h2 class="text-xl font-bold text-zinc-700 dark:text-zinc-300">Experience</h2>
-			<div>
+			<div class="flex flex-col items-stretch justify-start gap-8">
 				{#each resume.experience as experience}
 					<Experience {experience} />
 				{/each}
