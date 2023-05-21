@@ -5,3 +5,7 @@ body {
 	margin: 0 !important;
 	padding: 0 !important;
 }
+
+html.dark, .dark body{
+	@apply: bg-zinc-950;
+}
