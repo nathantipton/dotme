@@ -3,6 +3,10 @@
 	import '@fontsource/open-sans';
 	// Your selected Skeleton theme:
 	import '../theme.css';
+	import { dev } from '$app/environment';
+	import { inject } from '@vercel/analytics';
+
+	inject({ mode: dev ? 'development' : 'production' });
 
 	// This contains the bulk of Skeletons required styles:
 	// NOTE: this will be renamed skeleton.css in the v2.x release.
@@ -40,7 +44,7 @@
 	<meta property="og:image:alt" content="Nathan Tipton - Home" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="@ntipton21" />
-	<meta name="twitter:title" content="Nathan Tipton - Resume" />
+	<meta name="twitter:title" content="Nathan Tipton - Home" />
 	<meta
 		name="twitter:description"
 		content="Creative and ambitious software developer with ten years of demonstrated experience in the
@@ -48,7 +52,7 @@
         effective at understanding business needs and providing innovative solutions."
 	/>
 	<meta name="twitter:image" content="https://www.nathantipton.me/profile.jpg" />
-	<meta name="twitter:image:alt" content="Nathan Tipton - Resume" />
+	<meta name="twitter:image:alt" content="Nathan Tipton - Home" />
 </svelte:head>
 
 <div class="bg-gradient min-h-safe min-w-full dark:bg-zinc-950">
