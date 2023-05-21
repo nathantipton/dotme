@@ -62,8 +62,8 @@
 <style lang="postcss">
 	:global(.dark .bg-gradient) {
 		background-color: hsla(240, 10%, 3%, 1);
-		background-image: radial-gradient(at 63% 65%, hsla(17, 87%, 40%, 0.09) 0px, transparent 50%),
-			radial-gradient(at 40% 50%, hsla(240, 3%, 15%, 0.48) 0px, transparent 50%);
+		background-image: radial-gradient(at 63% 65%, hsla(17, 87%, 40%, 0.12) 0px, transparent 50%),
+			radial-gradient(at 40% 50%, hsla(240, 3%, 15%, 0.8) 0px, transparent 50%);
 	}
 
 	:global(.bg-gradient) {
