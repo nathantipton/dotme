@@ -32,6 +32,7 @@ export type Experience = {
 	location: string;
 	companyDescription: string;
 	summary: string;
+	private: boolean;
 	highlights: {
 		title: string;
 		points: string[];
@@ -124,6 +125,7 @@ export const RESUME_V1: ResumeV1 = {
 			start: 'July 2020',
 			end: 'Present',
 			location: 'Remote',
+			private: false,
 			companyDescription:
 				'Cybersecurity company that provides Hacking as a Service (HaaS) to Fortune 500 companies.',
 			summary: `Led the ideation, development, and business planning of special projects for BuddoBot.`,
@@ -164,6 +166,7 @@ export const RESUME_V1: ResumeV1 = {
 			start: 'March 2020',
 			end: 'Present',
 			location: 'Remote',
+			private: true,
 			companyDescription: `America's second-largest federal credit union, offering Best-in-Class rates on car loans and home mortgages, market-leading financial services.`,
 			summary: `Developed custom software solutions to enhance operational efficiency and effectiveness for a leading credit union.`,
 			highlights: [
@@ -197,6 +200,7 @@ export const RESUME_V1: ResumeV1 = {
 			start: 'July 2019',
 			end: 'July 2020',
 			location: 'Raleigh, NC',
+			private: false,
 			companyDescription:
 				'Leading provider of closing, title and escrow software, with more than 60,000 users.',
 			summary: `Engineer for SoftPro’s integration platform. Responsible for developing and maintaining the framework used by
@@ -232,6 +236,7 @@ export const RESUME_V1: ResumeV1 = {
 			start: 'July 2017',
 			end: 'July 2019',
 			location: 'San Antonio, TX',
+			private: false,
 			companyDescription:
 				'Fortune 500 diversified financial services group with over 30,000 employees',
 			summary: `Responsible for the ideation, design, development, delivery, and support of tools and web applications used by Real
@@ -268,6 +273,7 @@ export const RESUME_V1: ResumeV1 = {
 			start: 'December 2015',
 			end: 'July 2017',
 			location: 'Dallas, TX',
+			private: false,
 			companyDescription:
 				'Human capital management SaaS company with over 70 employees, providing web-based solutions for talent acquisition and development',
 			summary: `Led project integrations with client teams and third-party ATS and HRIS systems. Designed, engineered and
@@ -298,6 +304,7 @@ export const RESUME_V1: ResumeV1 = {
 			start: 'April 2014',
 			end: 'December 2015',
 			location: 'Dallas, TX',
+			private: false,
 			companyDescription:
 				'Human capital management SaaS company with over 70 employees, providing web-based solutions for talent acquisition and development',
 			summary: `Responsible for developing features on existing platforms while also solving escalated support issues from clients and

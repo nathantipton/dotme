@@ -42,7 +42,7 @@
 		<div class="flex flex-col items-stretch justify-start gap-2">
 			<h2 class="text-xl font-bold text-zinc-700 dark:text-zinc-300">Experience</h2>
 			<div class="flex flex-col items-stretch justify-start gap-8">
-				{#each resume.experience as experience}
+				{#each resume.experience.filter(e=>!e.private) as experience}
 					<Experience {experience} />
 				{/each}
 			</div>
@@ -53,17 +53,15 @@
 			<div>
 				{#each resume.education as education}
 					<Education {education} />
-					<hr />
 				{/each}
 			</div>
 		</div>
 
 		<div class="flex flex-col items-stretch justify-start gap-2">
 			<h2 class="text-xl font-bold text-zinc-700 dark:text-zinc-300">Projects</h2>
-			<div>
+			<div class="flex flex-col items-stretch justify-start gap-8">
 				{#each resume.projects as project}
 					<Project {project} />
-					<hr />
 				{/each}
 			</div>
 		</div>
