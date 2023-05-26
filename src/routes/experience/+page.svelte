@@ -9,13 +9,12 @@
 
 	export let data: PageData;
 	const { resume } = data;
-	console.log(resume);
 </script>
 
 {#if resume}
 	<div>
 		<div
-			class="container mx-auto flex max-w-4xl flex-col items-stretch justify-start gap-8 bg-white px-4 py-8 shadow-md dark:border-x dark:border-zinc-800 dark:bg-zinc-900 md:px-16"
+			class="container mx-auto flex max-w-4xl flex-col items-stretch justify-start gap-8 bg-white px-4 py-8 shadow-md dark:border-x dark:border-zinc-800 dark:bg-zinc-900 dark:bg-opacity-70 md:px-16"
 		>
 			<div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
 				<div>
@@ -47,7 +46,7 @@
 			<div class="flex flex-col items-stretch justify-start gap-2">
 				<h2 class="text-xl font-bold text-zinc-700 dark:text-zinc-300">Experience</h2>
 				<div class="flex flex-col items-stretch justify-start gap-8">
-					{#each resume.experience as experience}
+					{#each resume.experience.filter(e=>!e.private) as experience}
 						<Experience {experience} />
 					{/each}
 				</div>

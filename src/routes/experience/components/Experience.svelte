@@ -25,7 +25,7 @@
 			<h4 class="font-semibold text-zinc-700 dark:text-zinc-200">{highlight.title}</h4>
 			<ul class="list-inside text-sm">
 				{#each highlight.points as point}
-					<li class=" list-disc py-1 text-zinc-500 dark:text-zinc-400">{point}</li>
+					<li class="list-disc py-1 text-zinc-500 dark:text-zinc-400">{point}</li>
 				{/each}
 			</ul>
 		{/each}
