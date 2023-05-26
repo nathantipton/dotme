@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { Project } from '../../../lib/resumes/v1';
+	import type { project } from '@prisma/client';
 
-	export let project: Project;
+	export let project: project;
 </script>
 
 <div>

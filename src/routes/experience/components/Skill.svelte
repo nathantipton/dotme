@@ -1,8 +1,10 @@
 <script lang="ts">
-	import type { Skill } from '../../../lib/resumes/v1';
-	export let skill: Skill;
+	import type { skill } from '@prisma/client';
+	export let skill: skill;
 </script>
 
-<div class="rounded bg-zinc-200 px-2 py-1.5 text-xs dark:bg-zinc-800 dark:text-zinc-200 dark:hover:text-white cursor-pointer dark:hover:bg-zinc-700">
+<div
+	class="cursor-pointer rounded bg-zinc-200 px-2 py-1.5 text-xs dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700 dark:hover:text-white"
+>
 	{skill.name}
 </div>

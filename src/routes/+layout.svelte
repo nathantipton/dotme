@@ -55,8 +55,11 @@
 	<meta name="twitter:image:alt" content="Nathan Tipton - Home" />
 </svelte:head>
 
-<div class="bg-gradient min-h-safe min-w-full dark:bg-zinc-950">
-	<slot />
+<div class="relative min-h-safe min-w-full">
+	<div class="bg-gradient fixed bottom-0 left-0 right-0 top-0 -z-10" />
+	<div class="z-10">
+		<slot />
+	</div>
 </div>
 
 <style lang="postcss">

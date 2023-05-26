@@ -1,0 +1,134 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model resume {
+  id                  String                @id @default(uuid())
+  name                String
+  photo_url           String?
+  title               String
+  summary             String
+  version             String                @default("1.0.0") @db.VarChar(255)
+  contact_information contact_information[]
+  education           education[]
+  experience          experience[]
+  project             project[]
+  resume_skill        resume_skill[]
+}
+
+model contact_information {
+  id        String      @id @default(uuid())
+  title     String
+  value     String
+  icon_url  String?
+  type      ContactType
+  resume_id String?
+  resume    resume?     @relation(fields: [resume_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model experience {
+  id                  String             @id @default(uuid())
+  company             String
+  title               String
+  start               String
+  end                 String
+  location            String
+  company_description String
+  summary             String
+  private             Boolean
+  sort                Int                @default(0)
+  resume_id           String?
+  resume              resume?            @relation(fields: [resume_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  experience_skill    experience_skill[]
+  highlight           highlight[]
+}
+
+model highlight {
+  id            String      @id @default(uuid())
+  title         String
+  points        String[]
+  experience_id String?
+  experience    experience? @relation(fields: [experience_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model education {
+  id            String  @id @default(uuid())
+  school        String
+  degree        String
+  concentration String
+  date          String
+  resume_id     String?
+  resume        resume? @relation(fields: [resume_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model skill {
+  id               String             @id @default(uuid())
+  name             String
+  icon_url         String?
+  status           SkillStatus?
+  since            String?
+  experience_skill experience_skill[]
+  project_skill    project_skill[]
+  resume_skill     resume_skill[]
+}
+
+model project {
+  id            String          @id @default(uuid())
+  title         String
+  summary       String
+  tech          String[]
+  link          String
+  resume_id     String?
+  resume        resume?         @relation(fields: [resume_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  project_skill project_skill[]
+}
+
+model project_skill {
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  project_id String
+  skill_id   String
+  project    project   @relation(fields: [project_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  skill      skill     @relation(fields: [skill_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@unique([project_id, skill_id])
+}
+
+model experience_skill {
+  created_at    DateTime?  @default(now()) @db.Timestamptz(6)
+  experience_id String
+  skill_id      String
+  experience    experience @relation(fields: [experience_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  skill         skill      @relation(fields: [skill_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@unique([experience_id, skill_id])
+}
+
+model resume_skill {
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  resume_id  String
+  skill_id   String
+  resume     resume    @relation(fields: [resume_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  skill      skill     @relation(fields: [skill_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@unique([resume_id, skill_id])
+}
+
+enum ContactType {
+  phone
+  email
+  website
+  linkedin
+  github
+  social
+}
+
+enum SkillStatus {
+  learning
+  proficient
+  expert
+}

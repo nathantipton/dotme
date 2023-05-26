@@ -133,29 +133,29 @@ export const RESUME_V1: ResumeV1 = {
 				{
 					title: 'Software Development & Cloud Architecture',
 					points: [
-						'Developed software using technologies such as Angular, SvelteKit, Supabase, Firebase, Algolia, Mapbox, Jest, Playwright, Vitest, TypeScript, Postgres, NoSQL, serverless, cloud services, Prisma, and Tailwind CSS',
-						'Established CI/CD pipelines and ensured seamless deployment of applications'
+						'Develop software using technologies such as Angular, SvelteKit, Supabase, Firebase, Algolia, Mapbox, Jest, Playwright, Vitest, TypeScript, Postgres, NoSQL, serverless, cloud services, Prisma, and Tailwind CSS',
+						'Establish CI/CD pipelines and ensure seamless deployment of applications'
 					]
 				},
 				{
 					title: 'Business Planning & Financial Modeling',
 					points: [
-						'Created comprehensive business plans, financial models, and projections for special projects and ventures',
-						'Collaborated with legal teams and conducted competitive analysis to ensure the success of projects'
+						'Create comprehensive business plans, financial models, and projections for special projects and ventures',
+						'Collaborate with legal teams and conduct competitive analysis to ensure the success of projects'
 					]
 				},
 				{
 					title: 'Lean UX & Design',
 					points: [
-						'Employed Lean UX methodologies, such as wireframing and prototyping, to design user-centered applications',
-						'Utilized design tools like Figma, Illustrator, Balsamiq, and Proto.io for creating visually appealing and functional designs'
+						'Employ Lean UX methodologies, such as wireframing and prototyping, to design user-centered applications',
+						'Utilize design tools like Figma, Illustrator, Balsamiq, and Proto.io for creating visually appealing and functional designs'
 					]
 				},
 				{
 					title: 'Project Management & Adaptability',
 					points: [
-						'Managed projects with low autonomy, rapidly learning new technologies and adapting to challenges',
-						'Navigated projects covered by NDAs, demonstrating value added without revealing sensitive information'
+						'Manage projects with low autonomy, rapidly learn new technologies and adapt to challenges',
+						'Navigate projects covered by NDAs, demonstrating value added without revealing sensitive information'
 					]
 				}
 			]
@@ -173,23 +173,23 @@ export const RESUME_V1: ResumeV1 = {
 				{
 					title: 'Mortgage Loan Quality Assurance Tool',
 					points: [
-						'Developed a custom platform that enabled Quality Assurance (QA) analysts to add tests and rules to specific loan criteria to ensure loans were correct and compliant',
-						'Replaced a costly version of software with a more efficient solution built using Angular 12 and Sharepoint Lists REST API'
+						'Develop a custom platform that enables Quality Assurance (QA) analysts to add tests and rules to specific loan criteria to ensure loans are correct and compliant',
+						'Replace a costly version of software with a more efficient solution built using Angular 12 and Sharepoint Lists REST API'
 					]
 				},
 				{
 					title: 'Procedure Repository',
 					points: [
-						'Designed and developed a platform for the Business Controls team to write, publish, audit, and certify hundreds of procedure documents',
-						'Users can search, favorite, pin, and make suggestions for changes to these procedures',
-						'Replaced a shared folder of PDF documents, resulting in a more efficient and user-friendly system'
+						'Design and develop a platform for the Business Controls team to write, publish, audit, and certify hundreds of procedure documents',
+						'Enable users to search, favorite, pin, and make suggestions for changes to these procedures',
+						'Replace a shared folder of PDF documents, resulting in a more efficient and user-friendly system'
 					]
 				},
 				{
 					title: 'Mortgage Process Timelines',
 					points: [
-						'Created infographics using Adobe Illustrator that walked through each day of the mortgage process from initial call to funding',
-						'Designed as a quick reference placemat for employees to use while talking to members, improving their ability to provide accurate and efficient service'
+						'Create infographics using Adobe Illustrator that walk through each day of the mortgage process from initial call to funding',
+						'Design as a quick reference placemat for employees to use while talking to members, improving their ability to provide accurate and efficient service'
 					]
 				}
 			]
@@ -203,28 +203,28 @@ export const RESUME_V1: ResumeV1 = {
 			private: false,
 			companyDescription:
 				'Leading provider of closing, title and escrow software, with more than 60,000 users.',
-			summary: `Engineer for SoftPro’s integration platform. Responsible for developing and maintaining the framework used by
+			summary: `Engineer for SoftPro's integration platform. Responsible for developing and maintaining the framework used by
                 hundreds of vendors in the title and escrow industry.`,
 			highlights: [
 				{
 					title: 'Software Development',
 					points: [
-						'Lead front-end Angular SaaS platform development and contribute to back-end C# solutions for the integration team',
-						'Ensure code quality by unit testing code with Jasmine, Karma, and MS Test'
+						'Led front-end Angular SaaS platform development and contributed to back-end C# solutions for the integration team',
+						'Ensured code quality by unit testing code with Jasmine, Karma, and MS Test'
 					]
 				},
 				{
 					title: 'Cloud Services',
 					points: [
-						'Implement and monitor CI/CD pipelines through Azure Devops to deliver code quickly',
-						'Collaborator in migration from monolith to a cloud microservice based architecture in Azure',
-						'Utilize Azure services such as Application Insights, Cosmos DB, Key Vault, and Service Fabric'
+						'Implemented and monitored CI/CD pipelines through Azure Devops to deliver code quickly',
+						'Collaborated in migration from monolith to a cloud microservice based architecture in Azure',
+						'Utilized Azure services such as Application Insights, Cosmos DB, Key Vault, and Service Fabric'
 					]
 				},
 				{
 					title: 'Other Responsibilities',
 					points: [
-						'Serves as Proxy Scrum Master to facilitate Scrum activites to drive team progess towards goals',
+						'Served as Proxy Scrum Master to facilitate Scrum activities to drive team progress towards goals',
 						'Certifications: AZ-900 Azure Fundamentals, AZ-203 Azure Associate Developer (In Progress), SAFe Certified Scrum Master (In Progress)'
 					]
 				}
@@ -282,17 +282,17 @@ export const RESUME_V1: ResumeV1 = {
 				{
 					title: 'Automated Client Reporting Platform',
 					points: [
-						'Application created to allow client success teams to quickly monitor client metrics including usage, score distributions, and demographics',
+						'Created an application that allowed client success teams to quickly monitor client metrics including usage, score distributions, and demographics',
 						'Reduced the time to complete client reporting efforts from an average of 6-8 hours per report, to under 5 minutes for over 250 reports per year',
-						'Allowed client teams to share reporting metrics with clients on a regular basis, resulting in higher client engagement'
+						'Enabled client teams to share reporting metrics with clients on a regular basis, resulting in higher client engagement'
 					]
 				},
 				{
 					title: 'Client Health Monitoring Application',
 					points: [
-						'Automated system built to monitor client usage metrics. Delivered client teams weekly automated email updates on usage increases and decreases, allowing teams to better understand their clients’ engagement',
+						'Built an automated system to monitor client usage metrics. Delivered client teams weekly automated email updates on usage increases and decreases, enabling teams to better understand their clients’ engagement',
 						'Empowered client teams to proactively manage client relationships',
-						'Generated sales opportunities when usage numbers increase to contract maximums',
+						'Generated sales opportunities when usage numbers increased to contract maximums',
 						'Developed a scoring algorithm for client health, used to help client teams forecast renewals and risks'
 					]
 				}
