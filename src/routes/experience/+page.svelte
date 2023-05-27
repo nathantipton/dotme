@@ -39,6 +39,10 @@
 	});
 </script>
 
+<svelte:head>
+	<title>{resume?.name} | Experience</title>
+</svelte:head>
+
 {#if resume}
 	<div>
 		<div
