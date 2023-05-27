@@ -18,7 +18,6 @@ model resume {
   education           education[]
   experience          experience[]
   project             project[]
-  resume_skill        resume_skill[]
 }
 
 model contact_information {
@@ -41,19 +40,20 @@ model experience {
   company_description String
   summary             String
   private             Boolean
-  sort                Int                @default(0)
   resume_id           String?
+  sort                Int                @default(0)
   resume              resume?            @relation(fields: [resume_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
   experience_skill    experience_skill[]
   highlight           highlight[]
 }
 
 model highlight {
-  id            String      @id @default(uuid())
-  title         String
-  points        String[]
-  experience_id String?
-  experience    experience? @relation(fields: [experience_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  id              String            @id @default(uuid())
+  title           String
+  points          String[]
+  experience_id   String?
+  experience      experience?       @relation(fields: [experience_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  highlight_skill highlight_skill[]
 }
 
 model education {
@@ -68,20 +68,17 @@ model education {
 
 model skill {
   id               String             @id @default(uuid())
-  name             String
+  name             String             @unique
   icon_url         String?
-  status           SkillStatus?
-  since            String?
   experience_skill experience_skill[]
+  highlight_skill  highlight_skill[]
   project_skill    project_skill[]
-  resume_skill     resume_skill[]
 }
 
 model project {
   id            String          @id @default(uuid())
   title         String
   summary       String
-  tech          String[]
   link          String
   resume_id     String?
   resume        resume?         @relation(fields: [resume_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
@@ -108,14 +105,14 @@ model experience_skill {
   @@unique([experience_id, skill_id])
 }
 
-model resume_skill {
-  created_at DateTime? @default(now()) @db.Timestamptz(6)
-  resume_id  String
-  skill_id   String
-  resume     resume    @relation(fields: [resume_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  skill      skill     @relation(fields: [skill_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+model highlight_skill {
+  created_at   DateTime? @default(now()) @db.Timestamptz(6)
+  highlight_id String
+  skill_id     String
+  highlight    highlight @relation(fields: [highlight_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  skill        skill     @relation(fields: [skill_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
-  @@unique([resume_id, skill_id])
+  @@unique([highlight_id, skill_id])
 }
 
 enum ContactType {
@@ -125,10 +122,4 @@ enum ContactType {
   linkedin
   github
   social
-}
-
-enum SkillStatus {
-  learning
-  proficient
-  expert
 }

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { selectedSkills } from '$lib/stores/skills.store';
+	import type { skill } from '@prisma/client';
 	import type { PageData } from './$types';
 
 	import ContactDetail from './components/ContactDetail.svelte';
@@ -9,6 +11,32 @@
 
 	export let data: PageData;
 	const { resume } = data;
+
+	const skills: skill[] = [];
+
+	resume?.experience.forEach((experience) => {
+		experience.experience_skill?.forEach((es) => {
+			if (!skills.find((s) => s.name === es.skill.name)) {
+				skills.push(es.skill);
+			}
+		});
+
+		experience.highlight?.forEach((highlight) => {
+			highlight.highlight_skill?.forEach((hs) => {
+				if (!skills.find((s) => s.name === hs.skill.name)) {
+					skills.push(hs.skill);
+				}
+			});
+		});
+	});
+
+	resume?.project.forEach((project) => {
+		project.project_skill?.forEach((ps) => {
+			if (!skills.find((s) => s.name === ps.skill.name)) {
+				skills.push(ps.skill);
+			}
+		});
+	});
 </script>
 
 {#if resume}
@@ -35,9 +63,9 @@
 			<div class="flex flex-col items-stretch justify-start gap-2">
 				<h2 class="text-xl font-bold text-zinc-700 dark:text-zinc-300">Skills</h2>
 				<div class="flex flex-wrap gap-2">
-					{#each resume.resume_skill as skill}
-						{#if skill.skill}
-							<Skill skill={skill.skill} />
+					{#each skills as skill}
+						{#if skill}
+							<Skill {skill} />
 						{/if}
 					{/each}
 				</div>
@@ -46,7 +74,7 @@
 			<div class="flex flex-col items-stretch justify-start gap-2">
 				<h2 class="text-xl font-bold text-zinc-700 dark:text-zinc-300">Experience</h2>
 				<div class="flex flex-col items-stretch justify-start gap-8">
-					{#each resume.experience.filter(e=>!e.private) as experience}
+					{#each resume.experience.filter((e) => !e.private) as experience}
 						<Experience {experience} />
 					{/each}
 				</div>
