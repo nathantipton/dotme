@@ -5,7 +5,9 @@
 		class="flex flex-row items-center justify-center gap-4 md:justify-start md:gap-6
 	"
 	>
-		<div class="h-36 w-36 rounded-full bg-zinc-900 bg-opacity-70 bg-profile bg-cover bg-center" />
+		<div
+			class="h-36 w-36 rounded-full bg-zinc-100 bg-opacity-70 bg-profile bg-cover bg-center shadow dark:bg-zinc-900"
+		/>
 		<div>
 			<h1 class="text-2xl font-bold tracking-wide md:text-5xl">Nathan Tipton</h1>
 			<h4 class="font-semibold dark:text-zinc-500 md:text-lg">Web Developer &amp; Designer</h4>
