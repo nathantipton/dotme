@@ -55,7 +55,6 @@ export const load: PageServerLoad = async () => {
 
 			}
 		});
-		console.log(resume)
 		return resume;
 	}
 

@@ -89,6 +89,7 @@ model project {
   title         String
   summary       String
   link          String
+  image_url     String?
   resume_id     String?
   resume        resume?         @relation(fields: [resume_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
   project_skill project_skill[]

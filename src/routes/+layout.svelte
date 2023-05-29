@@ -40,7 +40,7 @@
         effective at understanding business needs and providing innovative solutions."
 	/>
 	<meta property="og:url" content="https://nathantipton.me" />
-	<meta property="og:image" content="https://www.nathantipton.me/profile.jpg" />
+	<meta property="og:image" content="https://www.nathantipton.me/profile.png" />
 	<meta property="og:image:alt" content="Nathan Tipton - Home" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content="@ntipton21" />
@@ -51,7 +51,7 @@
         development, design, implementation, and maintenance of modern web applications. Highly
         effective at understanding business needs and providing innovative solutions."
 	/>
-	<meta name="twitter:image" content="https://www.nathantipton.me/profile.jpg" />
+	<meta name="twitter:image" content="https://www.nathantipton.me/profile.png" />
 	<meta name="twitter:image:alt" content="Nathan Tipton - Home" />
 </svelte:head>
 

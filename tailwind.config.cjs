@@ -13,6 +13,9 @@ module.exports = {
       },
       minHeight: {
         safe: '100dvh'
+      },
+      backgroundImage: {
+        profile: "url('/profile.png')"
       }
     },
   },
