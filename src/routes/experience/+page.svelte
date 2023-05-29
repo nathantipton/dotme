@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { selectedSkills } from '$lib/stores/skills.store';
 	import type { skill } from '@prisma/client';
 	import type { PageData } from './$types';
 
@@ -12,7 +11,7 @@
 	export let data: PageData;
 	const { resume } = data;
 
-	const skills: skill[] = [];
+	let skills: skill[] = [];
 
 	resume?.experience.forEach((experience) => {
 		experience.experience_skill?.forEach((es) => {
@@ -37,6 +36,8 @@
 			}
 		});
 	});
+
+	console.log(skills);
 </script>
 
 <svelte:head>
@@ -44,9 +45,9 @@
 </svelte:head>
 
 {#if resume}
-	<div>
+	<div class="py-8">
 		<div
-			class="container mx-auto flex max-w-4xl flex-col items-stretch justify-start gap-8 bg-white px-4 py-8 shadow-md dark:border-x dark:border-zinc-800 dark:bg-zinc-900 dark:bg-opacity-70 md:px-16"
+			class="container mx-auto flex max-w-4xl flex-col items-stretch justify-start gap-8 bg-white px-4 py-8 shadow-md dark:border dark:border-zinc-800 dark:bg-zinc-900 dark:bg-opacity-70 md:px-16"
 		>
 			<div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
 				<div>
@@ -67,7 +68,7 @@
 			<div class="flex flex-col items-stretch justify-start gap-2">
 				<h2 class="text-xl font-bold text-zinc-700 dark:text-zinc-300">Skills</h2>
 				<div class="flex flex-wrap gap-2">
-					{#each skills as skill}
+					{#each skills.sort((a, b) => (a.skill_category?.sort ?? 99) - (b.skill_category?.sort ?? 99)) as skill}
 						{#if skill}
 							<Skill {skill} />
 						{/if}

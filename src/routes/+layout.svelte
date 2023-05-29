@@ -58,6 +58,47 @@
 <div class="relative min-h-safe min-w-full">
 	<div class="bg-gradient fixed bottom-0 left-0 right-0 top-0 -z-10" />
 	<div class="z-10">
+		<nav class="z-20 p-8">
+			<ul class="flex flex-row items-center justify-end gap-4">
+				<li>
+					<a
+						href="/"
+						class="text-zinc-500 underline-offset-8 hover:text-zinc-950 hover:underline dark:text-zinc-400 dark:hover:text-white"
+						>Home</a
+					>
+				</li>
+				<li>
+					<a
+						href="/experience"
+						class="text-zinc-500 underline-offset-8 hover:text-zinc-950 hover:underline dark:text-zinc-400 dark:hover:text-white"
+						>Experience</a
+					>
+				</li>
+				<li>
+					<a
+						href="/projects"
+						class="text-zinc-500 underline-offset-8 hover:text-zinc-950 hover:underline dark:text-zinc-400 dark:hover:text-white"
+						>Projects</a
+					>
+				</li>
+				<li>
+					<a
+						href="https://www.linkedin.com/in/tntipton/"
+						target="_blank"
+						class="text-zinc-500 underline-offset-8 hover:text-zinc-950 hover:underline dark:text-zinc-400 dark:hover:text-white"
+						>LinkedIn</a
+					>
+				</li>
+				<li>
+					<a
+						href="https://github.com/nathantipton"
+						target="_blank"
+						class="text-zinc-500 underline-offset-8 hover:text-zinc-950 hover:underline dark:text-zinc-400 dark:hover:text-white"
+						>GitHub</a
+					>
+				</li>
+			</ul>
+		</nav>
 		<slot />
 	</div>
 </div>

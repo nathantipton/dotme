@@ -67,12 +67,21 @@ model education {
 }
 
 model skill {
-  id               String             @id @default(uuid())
-  name             String             @unique
-  icon_url         String?
-  experience_skill experience_skill[]
-  highlight_skill  highlight_skill[]
-  project_skill    project_skill[]
+  id                String             @id @default(uuid())
+  name              String             @unique
+  icon_url          String?
+  skill_category_id String?            @db.Uuid
+  experience_skill  experience_skill[]
+  highlight_skill   highlight_skill[]
+  project_skill     project_skill[]
+  skill_category    skill_category?    @relation(fields: [skill_category_id], references: [id])
+}
+
+model skill_category {
+  id    String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name  String
+  sort  Int     @default(0)
+  skill skill[]
 }
 
 model project {
