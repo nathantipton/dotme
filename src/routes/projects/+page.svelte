@@ -7,7 +7,7 @@
 	const { projects } = data;
 </script>
 
-<div class="container mx-auto flex flex-col items-stretch justify-start gap-8 py-8">
+<div class="container mx-auto flex flex-col items-stretch justify-start gap-8 py-8 px-4 md:px-0">
 	<h1 class="text-3xl font-bold">My Projects</h1>
 
 	<div class="flex flex-row flex-wrap items-stretch justify-start gap-4">
