@@ -10,7 +10,7 @@
 	href={project.link}
 	target="_blank"
 	rel="noopener noreferrer"
-	class="flex w-full max-w-xs flex-col items-start justify-start gap-2 rounded border border-zinc-300 bg-zinc-50 p-6 transition-all dark:border-zinc-700 dark:bg-zinc-900 {project.link
+	class="flex w-full flex-col items-start justify-start gap-2 rounded border border-zinc-300 bg-zinc-50 p-6 transition-all dark:border-zinc-700 dark:bg-zinc-900 md:max-w-xs {project.link
 		? 'hover:border-zinc-400 hover:bg-zinc-100 dark:hover:border-zinc-600 dark:hover:bg-zinc-800'
 		: ''}"
 >
