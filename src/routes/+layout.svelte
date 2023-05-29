@@ -18,8 +18,39 @@
 	import { autoModeWatcher } from '@skeletonlabs/skeleton';
 	import { writable } from 'svelte/store';
 	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
 
 	const isDarkMode = writable(false);
+
+	const navItems = [
+		{
+			name: 'Home',
+			path: '/',
+			target: null
+		},
+		{
+			name: 'Experience',
+			path: '/experience',
+			target: null
+		},
+		{
+			name: 'Projects',
+			path: '/projects',
+			target: null
+		},
+		{
+			name: 'LinkedIn',
+			path: 'https://www.linkedin.com/in/tntipton/',
+			target: '_blank'
+		},
+		{
+			name: 'GitHub',
+			path: 'https://github.com/nathantipton',
+			target: '_blank'
+		}
+	];
+
+	$: currentPath = $page.url.pathname;
 
 	onMount(() => {
 		const prefersDarkMode = document.documentElement.classList.contains('dark');
@@ -60,43 +91,18 @@
 	<div class="z-10">
 		<nav class="z-20 p-8">
 			<ul class="flex flex-row items-center justify-end gap-4">
-				<li>
-					<a
-						href="/"
-						class="text-zinc-500 underline-offset-8 hover:text-zinc-950 hover:underline dark:text-zinc-400 dark:hover:text-white"
-						>Home</a
-					>
-				</li>
-				<li>
-					<a
-						href="/experience"
-						class="text-zinc-500 underline-offset-8 hover:text-zinc-950 hover:underline dark:text-zinc-400 dark:hover:text-white"
-						>Experience</a
-					>
-				</li>
-				<li>
-					<a
-						href="/projects"
-						class="text-zinc-500 underline-offset-8 hover:text-zinc-950 hover:underline dark:text-zinc-400 dark:hover:text-white"
-						>Projects</a
-					>
-				</li>
-				<li>
-					<a
-						href="https://www.linkedin.com/in/tntipton/"
-						target="_blank"
-						class="text-zinc-500 underline-offset-8 hover:text-zinc-950 hover:underline dark:text-zinc-400 dark:hover:text-white"
-						>LinkedIn</a
-					>
-				</li>
-				<li>
-					<a
-						href="https://github.com/nathantipton"
-						target="_blank"
-						class="text-zinc-500 underline-offset-8 hover:text-zinc-950 hover:underline dark:text-zinc-400 dark:hover:text-white"
-						>GitHub</a
-					>
-				</li>
+				{#each navItems as navItem}
+					<li>
+						<a
+							href={navItem.path}
+							target={navItem.target}
+							class="text-zinc-500 underline-offset-8 transition-all hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white {currentPath ===
+							navItem.path
+								? 'font-semibold text-zinc-800 underline dark:text-zinc-100'
+								: ''}">{navItem.name}</a
+						>
+					</li>
+				{/each}
 			</ul>
 		</nav>
 		<slot />
