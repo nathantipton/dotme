@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
-  darkMode: 'class',
+  darkMode: 'media',
   theme: {
     extend: {
       fontFamily: {
@@ -19,9 +19,21 @@ module.exports = {
       }
     },
   },
+  daisyui: {
+    themes: [
+      'light',
+      {
+        dark: {
+          ...require('daisyui/src/theming/themes')["[data-theme=dark]"],
+          "primary": "#18181b",
+          "base-100": "#ffffff",
+        }
+      }
+    ]
+  },
   plugins: [
     require('@tailwindcss/typography'),
     require('prettier-plugin-tailwindcss'),
-    ...require('@skeletonlabs/skeleton/tailwind/skeleton.cjs')()
+    require('daisyui')
   ],
 }

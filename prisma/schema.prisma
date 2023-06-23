@@ -85,20 +85,45 @@ model skill_category {
 }
 
 model project {
-  id            String          @id @default(uuid())
-  title         String
-  summary       String
-  link          String
-  image_url     String?
-  resume_id     String?
-  resume        resume?         @relation(fields: [resume_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  project_skill project_skill[]
+  title              String
+  summary            String
+  link               String
+  resume_id          String?
+  image_url          String?
+  slug               String               @unique
+  github_link        String               @default("")
+  description        String               @default("")
+  id                 String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  status             ProjectStatus?       @default(Building)
+  notes              String?
+  resume             resume?              @relation(fields: [resume_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  project_skill      project_skill[]
+  project_technology project_technology[]
+}
+
+model technology {
+  id                 String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name               String
+  type               TechnologyType
+  sort               Int                  @default(0)
+  dark_icon          String?
+  icon               String?
+  project_technology project_technology[]
+}
+
+model project_technology {
+  project_id    String     @db.Uuid
+  technology_id String     @db.Uuid
+  project       project    @relation(fields: [project_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  technology    technology @relation(fields: [technology_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([project_id, technology_id])
 }
 
 model project_skill {
   created_at DateTime? @default(now()) @db.Timestamptz(6)
-  project_id String
   skill_id   String
+  project_id String    @db.Uuid
   project    project   @relation(fields: [project_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
   skill      skill     @relation(fields: [skill_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
@@ -123,6 +148,23 @@ model highlight_skill {
   skill        skill     @relation(fields: [skill_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@unique([highlight_id, skill_id])
+}
+
+enum TechnologyType {
+  language
+  framework
+  library
+  database
+  tool
+  hosting
+}
+
+enum ProjectStatus {
+  Idea
+  Live
+  Building
+  Stale
+  Archived
 }
 
 enum ContactType {

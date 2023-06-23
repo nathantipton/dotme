@@ -9,8 +9,8 @@
 			class="h-36 w-36 rounded-full bg-zinc-100 bg-opacity-70 bg-profile bg-cover bg-center shadow dark:bg-zinc-900"
 		/>
 		<div>
-			<h1 class="text-2xl font-bold tracking-wide md:text-5xl">Nathan Tipton</h1>
-			<h4 class="font-semibold dark:text-zinc-500 md:text-lg">Web Developer &amp; Designer</h4>
+			<h1 class="text-2xl font-bold tracking-wide dark:text-zinc-200 md:text-5xl">Nathan Tipton</h1>
+			<h4 class="font-semibold dark:text-zinc-400 md:text-lg">Web Developer &amp; Designer</h4>
 		</div>
 	</div>
 </div>

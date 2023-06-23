@@ -1,26 +1,15 @@
 <script lang="ts">
 	import '@fontsource/montserrat';
 	import '@fontsource/open-sans';
-	// Your selected Skeleton theme:
-	import '../theme.css';
 	import { dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
 
 	inject({ mode: dev ? 'development' : 'production' });
 
-	// This contains the bulk of Skeletons required styles:
-	// NOTE: this will be renamed skeleton.css in the v2.x release.
-	import '@skeletonlabs/skeleton/styles/skeleton.css';
-
-	// Finally, your application's global stylesheet (sometimes labeled 'app.css')
 	import '../app.css';
-
-	import { autoModeWatcher } from '@skeletonlabs/skeleton';
-	import { writable } from 'svelte/store';
-	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-
-	const isDarkMode = writable(false);
+	import { onMount } from 'svelte';
+	import { isDarkMode } from '$lib/stores/ui.store';
 
 	const navItems = [
 		{
@@ -53,7 +42,9 @@
 	$: currentPath = $page.url.pathname;
 
 	onMount(() => {
-		const prefersDarkMode = document.documentElement.classList.contains('dark');
+		const prefersDarkMode =
+			document.documentElement.classList.contains('dark') ||
+			window.matchMedia('(prefers-color-scheme: dark)').matches;
 		if (prefersDarkMode) {
 			isDarkMode.set(true);
 		}
@@ -61,7 +52,6 @@
 </script>
 
 <svelte:head>
-	{@html `<script>${autoModeWatcher.toString()} autoModeWatcher();</script>`}
 	<meta property="og:title" content="Nathan Tipton - Home" />
 	<meta property="og:type" content="website" />
 	<meta
@@ -96,9 +86,12 @@
 						<a
 							href={navItem.path}
 							target={navItem.target}
-							class="text-zinc-500 underline-offset-8 transition-all hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white {currentPath ===
-							navItem.path
-								? 'font-semibold text-zinc-800 underline dark:text-zinc-100'
+							class="text-zinc-500 underline-offset-8 transition-all hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white {(currentPath.indexOf(
+								navItem.path
+							) === 0 &&
+								navItem.path !== '/') ||
+							currentPath === navItem.path
+								? 'font-semibold text-zinc-800 underline dark:text-zinc-50'
 								: ''}">{navItem.name}</a
 						>
 					</li>
@@ -108,17 +101,3 @@
 		<slot />
 	</div>
 </div>
-
-<style lang="postcss">
-	:global(.dark .bg-gradient) {
-		background-color: hsla(240, 10%, 3%, 1);
-		background-image: radial-gradient(at 63% 65%, hsla(17, 87%, 40%, 0.12) 0px, transparent 50%),
-			radial-gradient(at 40% 50%, hsla(240, 3%, 15%, 0.8) 0px, transparent 50%);
-	}
-
-	:global(.bg-gradient) {
-		background-color: hsla(0, 0%, 98%, 1);
-		background-image: radial-gradient(at 63% 65%, hsla(17, 34%, 61%, 0.192) 0px, transparent 50%),
-			radial-gradient(at 40% 50%, hsla(240, 7%, 70%, 0.226) 0px, transparent 50%);
-	}
-</style>
