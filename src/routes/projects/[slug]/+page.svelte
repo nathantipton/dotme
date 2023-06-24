@@ -1,9 +1,22 @@
 <script lang="ts">
+	import { analytics } from '$lib/firebase';
 	import { isDarkMode } from '$lib/stores/ui.store';
+	import { logEvent } from 'firebase/analytics';
 	import type { PageData } from './$types';
+	import { onMount } from 'svelte';
+	import { browser } from '$app/environment';
 
 	export let data: PageData;
 	const { project } = data;
+
+	onMount(() => {
+		if (browser) {
+			logEvent(analytics, 'view_project', {
+				project_id: project.id,
+				project_title: project.title
+			});
+		}
+	});
 </script>
 
 <svelte:head>
@@ -44,7 +57,15 @@
 		<div class="flex flex-row items-center justify-end gap-4">
 			{#if project.github_link}
 				<div class="tooltip" data-tip="Check out my GitHub">
-					<a href={project.github_link} class="btn-ghost btn">
+					<a
+						href={project.github_link}
+						class="btn-ghost btn"
+						on:click={() =>
+							logEvent(analytics, 'navigate_to_github', {
+								project_id: project.id,
+								project_title: project.title
+							})}
+					>
 						<i class="fab fa-github fa-xl md:fa-lg" />
 						<span class="hidden md:visible">View on GitHub</span>
 					</a>
@@ -52,7 +73,16 @@
 			{/if}
 			{#if project.link}
 				<div class="tooltip" data-tip="Go to site">
-					<a href={project.link} target="_blank" class="btn-outline btn">
+					<a
+						href={project.link}
+						target="_blank"
+						class="btn-outline btn"
+						on:click={() =>
+							logEvent(analytics, 'navigate_to_site', {
+								project_id: project.id,
+								project_title: project.title
+							})}
+					>
 						<span class="hidden md:visible">go to site</span>
 						<i class="fa-solid fa-arrow-up-right-from-square" />
 					</a>

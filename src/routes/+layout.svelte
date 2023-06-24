@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '@fontsource/montserrat';
 	import '@fontsource/open-sans';
-	import { dev } from '$app/environment';
+	import { browser, dev } from '$app/environment';
 	import { inject } from '@vercel/analytics';
 
 	inject({ mode: dev ? 'development' : 'production' });
@@ -10,6 +10,8 @@
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 	import { isDarkMode } from '$lib/stores/ui.store';
+	import { PUBLIC_FIREBASE_CONFIG } from '$env/static/public';
+	import { initializeFirebase } from '$lib/firebase';
 
 	const navItems = [
 		{
@@ -42,6 +44,14 @@
 	$: currentPath = $page.url.pathname;
 
 	onMount(() => {
+		
+	if (browser) {
+		try {
+			initializeFirebase(JSON.parse(PUBLIC_FIREBASE_CONFIG));
+		} catch (ex) {
+			console.error(ex);
+		}
+	}
 		const prefersDarkMode =
 			document.documentElement.classList.contains('dark') ||
 			window.matchMedia('(prefers-color-scheme: dark)').matches;
