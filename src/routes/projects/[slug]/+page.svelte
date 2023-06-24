@@ -21,7 +21,9 @@
 	<meta name="twitter:image:alt" content="Nathan Tipton - {project.title}" />
 </svelte:head>
 
-<div class="container mx-auto max-w-4xl flex flex-col items-stretch justify-start gap-8 px-4 py-8 md:px-0">
+<div
+	class="container mx-auto flex max-w-4xl flex-col items-stretch justify-start gap-8 px-4 py-8 md:px-0"
+>
 	<div>
 		<a class="btn-ghost btn" href="/projects">
 			<i class="fa-solid fa-arrow-left mr-2" />
@@ -33,22 +35,28 @@
 		<div class="flex flex-col items-start justify-start gap-4 md:flex-row md:items-center">
 			<img class="h-12 rounded" src="/{project.image_url}" alt="" />
 			<h1 class="text-4xl font-bold dark:text-zinc-100">{project.title}</h1>
-			<div class="ml-2 rounded border border-zinc-700 bg-zinc-800 px-3 py-1 text-sm text-zinc-300">
+			<div
+				class="ml-2 rounded border border-zinc-300 bg-zinc-200 px-3 py-1 text-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
+			>
 				{project.status}
 			</div>
 		</div>
 		<div class="flex flex-row items-center justify-end gap-4">
 			{#if project.github_link}
-				<a href={project.github_link} class="btn-ghost btn">
-					<i class="fab fa-github fa-xl md:fa-lg" />
-					<span class="hidden md:visible">View on GitHub</span>
-				</a>
+				<div class="tooltip" data-tip="Check out my GitHub">
+					<a href={project.github_link} class="btn-ghost btn">
+						<i class="fab fa-github fa-xl md:fa-lg" />
+						<span class="hidden md:visible">View on GitHub</span>
+					</a>
+				</div>
 			{/if}
 			{#if project.link}
-				<a href={project.link} target="_blank" class="btn-outline btn">
-					<span>go to site</span>
-					<i class="fa-solid fa-arrow-up-right-from-square" />
-				</a>
+				<div class="tooltip" data-tip="Go to site">
+					<a href={project.link} target="_blank" class="btn-outline btn">
+						<span class="hidden md:visible">go to site</span>
+						<i class="fa-solid fa-arrow-up-right-from-square" />
+					</a>
+				</div>
 			{/if}
 		</div>
 	</div>
@@ -56,7 +64,7 @@
 		<p>{project.description}</p>
 	</div>
 
-	<div class="flex flex-col gap-4">
+	<div class="flex flex-col gap-4 border-y border-zinc-300 py-8 dark:border-zinc-800">
 		<h2 class="text-xl font-bold dark:text-zinc-200">Tech Stack</h2>
 		<div class="flex flex-row flex-wrap gap-6">
 			{#each project.project_technology as project_technology}
