@@ -90,6 +90,7 @@ model project {
   link               String
   resume_id          String?
   image_url          String?
+  banner_url         String?
   slug               String               @unique
   github_link        String               @default("")
   description        String               @default("")

@@ -35,7 +35,7 @@
 </svelte:head>
 
 <div
-	class="container mx-auto flex max-w-4xl flex-col items-stretch justify-start gap-8 px-4 py-8 md:px-0"
+	class="container mx-auto flex max-w-4xl flex-col items-stretch justify-start gap-8 p-4 md:px-0"
 >
 	<div>
 		<a class="btn-ghost btn" href="/projects">
@@ -43,6 +43,10 @@
 			Back to Projects
 		</a>
 	</div>
+
+	{#if project.banner_url}
+		<img src="/{project.banner_url}" alt="Banner for {project.title}" />
+	{/if}
 
 	<div class="flex flex-row items-start justify-between">
 		<div class="flex flex-col items-start justify-start gap-4 md:flex-row md:items-center">
