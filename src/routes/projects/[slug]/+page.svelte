@@ -26,7 +26,7 @@
 	<meta property="og:url" content="https://nathantipton.me" />
 	<meta property="og:image" content="https://www.nathantipton.me/profile.png" />
 	<meta property="og:image:alt" content="Nathan Tipton - {project.title}" />
-	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="@ntipton21" />
 	<meta name="twitter:title" content="Nathan Tipton - {project.title}" />
 	<meta name="twitter:description" content={project.summary} />
