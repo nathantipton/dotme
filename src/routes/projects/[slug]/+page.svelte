@@ -37,7 +37,7 @@
 <div
 	class="container mx-auto flex max-w-4xl flex-col items-stretch justify-start gap-8 p-4 md:px-0"
 >
-	<div>
+	<div class="-my-6">
 		<a class="btn-ghost btn" href="/projects">
 			<i class="fa-solid fa-arrow-left mr-2" />
 			Back to Projects
