@@ -91,6 +91,7 @@ model project {
   resume_id          String?
   image_url          String?
   banner_url         String?
+  sort               Int                  @default(0)
   slug               String               @unique
   github_link        String               @default("")
   description        String               @default("")

@@ -9,7 +9,7 @@
 	href="/projects/{project.slug}"
 	rel="noopener noreferrer"
 	class="flex w-full flex-col items-start justify-start gap-2 rounded border border-zinc-300 bg-zinc-50 p-6 transition-all hover:border-zinc-400 hover:bg-zinc-100 dark:border-zinc-700
-	dark:bg-zinc-900 dark:hover:border-zinc-600 dark:hover:bg-zinc-800 md:max-w-xs"
+	dark:bg-zinc-900 dark:hover:border-zinc-600 dark:hover:bg-zinc-800"
 >
 	<div class="h-6">
 		{#if project.image_url}
