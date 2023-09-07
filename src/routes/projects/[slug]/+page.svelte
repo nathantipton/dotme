@@ -59,7 +59,7 @@
 			</div>
 		</div>
 		<div class="flex flex-row items-center justify-end gap-4">
-			{#if project.github_link}
+			{#if project.github_link && !project.github_private}
 				<div class="tooltip" data-tip="Check out my GitHub">
 					<a
 						href={project.github_link}

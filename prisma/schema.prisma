@@ -94,6 +94,7 @@ model project {
   sort               Int                  @default(0)
   slug               String               @unique
   github_link        String               @default("")
+  github_private     Boolean              @default(false)
   description        String               @default("")
   id                 String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   status             ProjectStatus?       @default(Building)
