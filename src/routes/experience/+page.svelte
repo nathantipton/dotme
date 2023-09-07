@@ -36,8 +36,6 @@
 			}
 		});
 	});
-
-	console.log(skills);
 </script>
 
 <svelte:head>
@@ -68,7 +66,7 @@
 			<div class="flex flex-col items-stretch justify-start gap-2">
 				<h2 class="text-xl font-bold text-zinc-700 dark:text-zinc-300">Skills</h2>
 				<div class="flex flex-wrap gap-2">
-					{#each skills.sort((a, b) => (a.skill_category?.sort ?? 99) - (b.skill_category?.sort ?? 99)) as skill}
+					{#each skills.sort((a, b) => (a.skil?.sort ?? 99) - (b.skill_category?.sort ?? 99)) as skill}
 						{#if skill}
 							<Skill {skill} />
 						{/if}

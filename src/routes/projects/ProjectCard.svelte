@@ -2,7 +2,6 @@
 	import type { project } from '@prisma/client';
 
 	export let project: project;
-	$: console.log(project);
 </script>
 
 <a
@@ -13,10 +12,17 @@
 >
 	<div class="h-6">
 		{#if project.image_url}
-			<img class="h-6 rounded" alt={project.title} src={project.image_url} />
+			<img
+				class="h-6 rounded"
+				alt={project.title}
+				src={project.image_url}
+				style={`view-transition-name: project-image-${project.id}`}
+			/>
 		{/if}
 	</div>
 
-	<h3 class="font-bold">{project.title}</h3>
+	<h3 class="font-bold" style={`view-transition-name: project-title-${project.id}`}>
+		{project.title}
+	</h3>
 	<p class="text-sm text-zinc-500 dark:text-zinc-400">{project.summary}</p>
 </a>

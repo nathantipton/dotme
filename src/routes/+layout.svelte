@@ -12,6 +12,8 @@
 	import { isDarkMode } from '$lib/stores/ui.store';
 	import { PUBLIC_FIREBASE_CONFIG } from '$env/static/public';
 	import { initializeFirebase } from '$lib/firebase';
+	import { onNavigate } from '$app/navigation';
+	import { fade, slide } from 'svelte/transition';
 
 	const navItems = [
 		{
@@ -40,18 +42,27 @@
 			target: '_blank'
 		}
 	];
-
 	$: currentPath = $page.url.pathname;
 
+	onNavigate((navigation) => {
+		if (!document.startViewTransition) return;
+
+		return new Promise((resolve) => {
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
+
 	onMount(() => {
-		
-	if (browser) {
-		try {
-			initializeFirebase(JSON.parse(PUBLIC_FIREBASE_CONFIG));
-		} catch (ex) {
-			console.error(ex);
+		if (browser) {
+			try {
+				initializeFirebase(JSON.parse(PUBLIC_FIREBASE_CONFIG));
+			} catch (ex) {
+				console.error(ex);
+			}
 		}
-	}
 		const prefersDarkMode =
 			document.documentElement.classList.contains('dark') ||
 			window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -96,18 +107,32 @@
 						<a
 							href={navItem.path}
 							target={navItem.target}
-							class="text-zinc-500 underline-offset-8 transition-all hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white {(currentPath.indexOf(
-								navItem.path
-							) === 0 &&
-								navItem.path !== '/') ||
-							currentPath === navItem.path
-								? 'font-semibold text-zinc-800 underline dark:text-zinc-50'
-								: ''}">{navItem.name}</a
+							class="relative text-zinc-500 transition-all hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white"
+							class:active={navItem.path === '/'
+								? currentPath === navItem.path
+								: currentPath.indexOf(navItem.path) > -1}>{navItem.name}</a
 						>
 					</li>
 				{/each}
 			</ul>
 		</nav>
-		<slot />
+		{#key $page.url.pathname}
+			<div in:fade>
+				<slot />
+			</div>
+		{/key}
 	</div>
 </div>
+
+<style lang="postcss">
+	.active {
+		@apply font-semibold text-zinc-800 dark:text-zinc-50;
+	}
+
+	.active::after {
+		content: '';
+		position: absolute;
+		view-transition-name: page-indicator;
+		@apply absolute -bottom-4 left-0 right-0 mx-auto h-0.5 w-full rounded-full bg-white;
+	}
+</style>

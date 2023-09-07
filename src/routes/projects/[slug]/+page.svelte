@@ -38,20 +38,26 @@
 	class="container mx-auto flex max-w-4xl flex-col items-stretch justify-start gap-8 p-4 md:px-0"
 >
 	<div class="-my-6">
-		<a class="btn-ghost btn" href="/projects">
+		<a class="btn btn-ghost" href="/projects">
 			<i class="fa-solid fa-arrow-left mr-2" />
 			Back to Projects
 		</a>
 	</div>
 
-	{#if project.banner_url}
-		<img src="/{project.banner_url}" alt="Banner for {project.title}" />
-	{/if}
-
 	<div class="flex flex-row items-start justify-between">
 		<div class="flex flex-col items-start justify-start gap-4 md:flex-row md:items-center">
-			<img class="h-12 rounded" src="/{project.image_url}" alt="" />
-			<h1 class="text-4xl font-bold dark:text-zinc-100">{project.title}</h1>
+			<img
+				class="h-12 rounded"
+				src="/{project.image_url}"
+				alt=""
+				style={`view-transition-name: project-image-${project.id}`}
+			/>
+			<h1
+				class="text-4xl font-bold dark:text-zinc-100"
+				style={`view-transition-name: project-title-${project.id}`}
+			>
+				{project.title}
+			</h1>
 			<div
 				class="ml-2 rounded border border-zinc-300 bg-zinc-200 px-3 py-1 text-sm dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
 			>
@@ -63,7 +69,7 @@
 				<div class="tooltip" data-tip="Check out my GitHub">
 					<a
 						href={project.github_link}
-						class="btn-ghost btn"
+						class="btn btn-ghost"
 						on:click={() =>
 							logEvent(analytics, 'navigate_to_github', {
 								project_id: project.id,
@@ -80,7 +86,7 @@
 					<a
 						href={project.link}
 						target="_blank"
-						class="btn-outline btn"
+						class="btn btn-outline"
 						on:click={() =>
 							logEvent(analytics, 'navigate_to_site', {
 								project_id: project.id,
@@ -94,6 +100,11 @@
 			{/if}
 		</div>
 	</div>
+
+	{#if project.banner_url}
+		<img src="/{project.banner_url}" alt="Banner for {project.title}" />
+	{/if}
+
 	<div>
 		<p>{project.description}</p>
 	</div>
