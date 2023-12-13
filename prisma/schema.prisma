@@ -99,6 +99,7 @@ model project {
   id                 String               @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   status             ProjectStatus?       @default(Building)
   notes              String?
+  is_active          Boolean              @default(true)
   resume             resume?              @relation(fields: [resume_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
   project_skill      project_skill[]
   project_technology project_technology[]
