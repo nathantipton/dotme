@@ -96,9 +96,13 @@
 				<MessageComponent {message} />
 			{/each}
 		</div>
-		<div class="relative flex flex-col items-stretch justify-end">
+		<div class="relative mt-8 flex flex-col items-stretch justify-end">
 			{#if thinking}
-				<div class="h-8 overflow-hidden absolute -top-8 left-0 z-10" in:fly={{ y: 20, duration: 200 }} out:fade>
+				<div
+					class="absolute -top-8 left-0 z-10 h-8 overflow-hidden"
+					in:fly={{ y: 20, duration: 200 }}
+					out:fade
+				>
 					<div class="flex flex-row items-center justify-start gap-2">
 						<img
 							src="/ai-avatar.webp"
