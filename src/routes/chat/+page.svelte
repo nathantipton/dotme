@@ -96,41 +96,43 @@
 				<MessageComponent {message} />
 			{/each}
 		</div>
-		{#if thinking}
-			<div
-				class="absolute bottom-24 left-0 z-10 h-8 overflow-hidden"
-				in:fly={{ y: 20, duration: 200 }}
-				out:fade
-			>
-				<div class="flex flex-row items-center justify-start gap-2">
-					<img
-						src="/ai-avatar.webp"
-						alt="Avatar for NateGippity"
-						class="avatar h-10 w-10 rounded-full"
-					/>
-					<p class="text-xs">
-						<span class="font-bold">NateGippity</span> is thinking...
-					</p>
+		<div class="h-24 flex flex-col justify-end items-stretch">
+			{#if thinking}
+				<div
+					class="h-8 overflow-hidden"
+					in:fly={{ y: 20, duration: 200 }}
+					out:fade
+				>
+					<div class="flex flex-row items-center justify-start gap-2">
+						<img
+							src="/ai-avatar.webp"
+							alt="Avatar for NateGippity"
+							class="avatar h-10 w-10 rounded-full"
+						/>
+						<p class="text-xs">
+							<span class="font-bold">NateGippity</span> is thinking...
+						</p>
+					</div>
 				</div>
-			</div>
-		{/if}
-		<form
-			action="?/query"
-			method="POST"
-			use:enhance
-			class="z-50 flex flex-row items-center justify-start gap-4"
-		>
-			<input
-				type="text"
-				name="question"
-				id="question"
-				class="input flex-1"
-				placeholder="Ask me anything about Nathan"
-				{...$constraints.question}
-				aria-invalid={$errors.question ? 'true' : undefined}
-			/>
-			<button class="btn" type="submit">Send</button>
-		</form>
+			{/if}
+			<form
+				action="?/query"
+				method="POST"
+				use:enhance
+				class="z-50 flex flex-row items-center justify-start gap-4"
+			>
+				<input
+					type="text"
+					name="question"
+					id="question"
+					class="input flex-1"
+					placeholder="Ask me anything about Nathan"
+					{...$constraints.question}
+					aria-invalid={$errors.question ? 'true' : undefined}
+				/>
+				<button class="btn" type="submit">Send</button>
+			</form>
+		</div>
 		<p class="py-4 text-center text-xs">
 			This is a work in progress and I'm still making adjustments with the model. Please check my <a
 				class="link"
