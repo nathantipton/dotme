@@ -83,7 +83,7 @@
 </script>
 
 <main
-	class="absolute bottom-0 left-0 right-0 top-0 flex w-full flex-col items-stretch justify-start bg-zinc-900 bg-opacity-30 px-4 md:px-0"
+	class="absolute bottom-0 left-0 right-0 top-0 flex w-full flex-col items-stretch justify-start bg-opacity-30 px-4 dark:bg-zinc-900 md:px-0"
 >
 	<div class="container relative mx-auto flex h-full max-w-2xl flex-col">
 		<div
