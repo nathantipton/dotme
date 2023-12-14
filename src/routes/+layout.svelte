@@ -97,9 +97,9 @@
 	<meta name="twitter:image:alt" content="Nathan Tipton - Home" />
 </svelte:head>
 
-<div class="relative min-h-safe min-w-full">
+<div class="relative h-0 min-h-safe min-w-full">
 	<div class="bg-gradient fixed bottom-0 left-0 right-0 top-0 -z-10" />
-	<div class="z-10">
+	<div class="z-10 flex h-full flex-col items-stretch justify-start">
 		<nav class="z-20 p-8">
 			<ul class="flex flex-row items-center justify-end gap-4">
 				{#each navItems as navItem}
@@ -116,8 +116,9 @@
 				{/each}
 			</ul>
 		</nav>
+
 		{#key $page.url.pathname}
-			<div in:fade>
+			<div in:fade class="relative h-full">
 				<slot />
 			</div>
 		{/key}

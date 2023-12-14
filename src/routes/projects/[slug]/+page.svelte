@@ -5,6 +5,7 @@
 	import type { PageData } from './$types';
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
+	import SvelteMarkdown from 'svelte-markdown';
 
 	export let data: PageData;
 	const { project } = data;
@@ -127,7 +128,8 @@
 	</div>
 
 	<div>
-		<h2 class="text-xl font-bold dark:text-zinc-200">Notes</h2>
-		<div>{@html project.notes}</div>
+		<div>
+			<SvelteMarkdown source={project.notes} />
+		</div>
 	</div>
 </div>
