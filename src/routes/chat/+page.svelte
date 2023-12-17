@@ -14,9 +14,10 @@
 
 	const { form, enhance, constraints, errors } = superForm(data.form, {
 		onSubmit: ({ formData }) => {
-			addMessage(formData.get('question') as string);
+			const question = formData.get('question') as string;
+			addMessage(question);
 			logAnalyticsEvent('chat_question_asked', {
-				question: formData.get('question') as string
+				question
 			});
 			scrollToBottom();
 			thinking = true;
