@@ -128,7 +128,7 @@
 	</div>
 
 	<div>
-		<div>
+		<div class="prose w-full max-w-3xl dark:prose-invert">
 			<SvelteMarkdown source={project.notes} />
 		</div>
 	</div>
